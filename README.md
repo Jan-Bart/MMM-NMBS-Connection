@@ -1,7 +1,7 @@
 # MMM-NMBS-Connection
 Display upcoming trains between 2 NMBS/SNCB stations (Belgium)
 
-This module is an extension of the MagicMirror² project.
+This module is an extension of the [MagicMirror² project](https://github.com/MichMich/MagicMirror).
 
 ## Screenshots
 ![Connections](https://github.com/Jan-Bart/MMM-NMBS-Connection/blob/master/screenshots/screenshot.png)
@@ -17,36 +17,37 @@ This module is an extension of the MagicMirror² project.
 Sample minimum configuration entry for your `~/MagicMirror/config/config.js`:
 
 ```
-		{
-			module: "mmm-nmbs-connection",
-			position: "bottom_left",
-			config: {
-				from: "Antwerp-Central"
-				to: "Brussels-South",
-			}
-		},
+{
+  module: "mmm-nmbs-connection",
+  position: "bottom_left",
+  config: {
+    from: "Antwerp-Central"
+    to: "Brussels-South",
+  }
+},
 ```
 
 Sample configuration entry for your `~/MagicMirror/config/config.js` with optional parameters:
 
 ```
-		{
-			module: "mmm-nmbs-connection",
-			position: "bottom_left",
-			config: {
-				from: "Antwerp-Central"
-				to: "Brussels-South",
-        results: 3
-			}
-		},
+{
+  module: "mmm-nmbs-connection",
+  position: "bottom_left",
+  config: {
+    from: "Antwerp-Central"
+    to: "Brussels-South",
+    results: 3
+  }
+},
 ```
 
 
 ## Configuration options
 
 The following properties can be configured:
+
 | Key        | Description                    | Example         |
-| ---------- |:------------------------------:| ---------------:|
+| ---------- |------------------------------  |:---------------:|
 | from       | Departure stationname or ID    | Antwerp-Central |
 | to         | Destination stationname or ID  | Brussels-Sout   |
 | results    | Number of results (max 6)      |      3          |
