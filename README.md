@@ -18,7 +18,7 @@ Sample minimum configuration entry for your `~/MagicMirror/config/config.js`:
 
 ```
 {
-  module: "mmm-nmbs-connection",
+  module: "MMM-NMBS-Connection",
   position: "bottom_left",
   config: {
     from: "Antwerp-Central"
@@ -31,7 +31,7 @@ Sample configuration entry for your `~/MagicMirror/config/config.js` with option
 
 ```
 {
-  module: "mmm-nmbs-connection",
+  module: "MMM-NMBS-Connection",
   position: "bottom_left",
   config: {
     from: "Antwerp-Central"

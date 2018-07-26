@@ -1,4 +1,4 @@
-Module.register("mmm-nmbs-connection", {
+Module.register("MMM-NMBS-Connection", {
 
 	defaults: {
 		initialLoadDelay: 1000, // 1 second delay
@@ -14,7 +14,7 @@ Module.register("mmm-nmbs-connection", {
 		return ["moment.js"];
 	},
 	getStyles: function() {
-		return ["mmm-nmbs-connection.css"];
+		return ["MMM-NMBS-Connection.css"];
 	},
 	getTranslations: function() {
 		return {
@@ -34,7 +34,7 @@ Module.register("mmm-nmbs-connection", {
 		let wrapper = document.createElement("div");
 		if (!this.loaded) {
 			wrapper.innerHTML = this.forecast;
-			wrapper.className = "mmm-nmbs-connection dimmed light small";
+			wrapper.className = "MMM-NMBS-Connection dimmed light small";
 			return wrapper;
 		}
 
