@@ -8,8 +8,8 @@ This module is an extension of the [MagicMirror² project](https://github.com/Mi
 
 ## Installation
 1. Navigate into your MagicMirror's modules folder
-2. Execute git clone https://github.com/Jan-Bart/MMM-NMBS-Connection
-3. Add config
+2. Execute: `git clone https://github.com/Jan-Bart/MMM-NMBS-Connection`
+3. Add [config](https://github.com/Jan-Bart/MMM-NMBS-Connection#configuration)
 4. Done
 
 

@@ -1,0 +1,31 @@
+{
+  "name": "MMM-NMBS-Connection",
+  "version": "1.0.2",
+  "description": "Public transport module for MagicMirror 2 driven by iRail data.",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Jan-Bart/MMM-NMBS-Connection"
+  },
+  "keywords": [
+    "magic mirror 2",
+    "nmbs",
+    "public transport Belgium",
+    "smart mirror",
+    "sncb"
+  ],
+  "author": {
+    "name": "Jan-Bart",
+    "url": "https://github.com/Jan-Bart"
+  },
+  "contributors": [
+    "https://github.com/Jan-Bart/MMM-NMBS-Connection/graphs/contributors"
+  ],
+  "license": "GPLv3",
+  "bugs": {
+    "url": "https://github.com/Jan-Bart/MMM-NMBS-Connection/issues"
+  },
+  "homepage": "https://github.com/Jan-Bart/MMM-NMBS-Connection",
+  "engines": {
+    "node": ">=6"
+  }
+}

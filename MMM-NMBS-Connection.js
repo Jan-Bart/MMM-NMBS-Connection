@@ -82,9 +82,7 @@ Module.register("MMM-NMBS-Connection", {
 
 		for (let i = 0; i < this.config.results; i++) {
 			let connection = connections[i];
-			Log.info(connection);
 			let connectionRow = document.createElement("tr");
-
 			let departureTime = document.createElement("td");
 			departureTime.className = "title bright";
 			departureTime.innerHTML = moment.unix(connection.departure.time).format("HH:mm");
