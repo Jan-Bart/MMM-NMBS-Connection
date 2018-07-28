@@ -1,5 +1,6 @@
 {
   "ARRIVAL": "Arrival",
+  "CHANGE": "change",
   "DEPARTURE": "Departure",
   "PLATFORM": "platform"
 }

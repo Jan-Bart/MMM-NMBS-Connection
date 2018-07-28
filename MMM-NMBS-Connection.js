@@ -59,8 +59,21 @@ Module.register("MMM-NMBS-Connection", {
 			.catch(error => Log.error("Fetch Error =\n", error));
 	},
 	processConnections: function (data) {
-		const wrapper = document.createElement("div");
-		let connectionList = `<table class="normal small light"><thead><tr><td>${this.translate("DEPARTURE")}</td><td></td><td>${this.translate("ARRIVAL")}</td></tr></thead><tbody>`;
+		let table = document.createElement("table");
+		let tHead = document.createElement("thead");
+		let headerRow = document.createElement("tr");
+		let headerDeparture = document.createElement("td");
+		headerDeparture.innerHTML = this.translate("DEPARTURE");
+		let headerLine = document.createElement("td");
+		let headerArrival = document.createElement("td");
+		headerArrival.innerHTML = this.translate("ARRIVAL");
+
+		headerRow.appendChild(headerDeparture);
+		headerRow.appendChild(headerLine);
+		headerRow.appendChild(headerArrival);
+		tHead.appendChild(headerRow);
+		table.appendChild(tHead);
+
 		let connections = data.connection;
 
 		if (!Number.isFinite(this.config.results) || this.config.results > 6) {
@@ -69,14 +82,58 @@ Module.register("MMM-NMBS-Connection", {
 
 		for (let i = 0; i < this.config.results; i++) {
 			let connection = connections[i];
-			connectionList+= `<tr><td class="title bright">${moment.unix(connection.departure.time).format("HH:mm")} <span class=\"xsmall ontime\">+${connection.departure.delay}</span></td><td> ---> </td><td>${moment.unix(connection.arrival.time).format("HH:mm")} <span class=\"xsmall ontime\">+${connection.arrival.delay}</span> </td></tr>`
-			connectionList+= `<tr><td class="xsmall">${this.translate("PLATFORM")} ${connection.departure.platform} </td><td></td><td class="xsmall">${this.translate("PLATFORM")} ${connection.arrival.platform}</td></tr>`
+			Log.info(connection);
+			let connectionRow = document.createElement("tr");
+
+			let departureTime = document.createElement("td");
+			departureTime.className = "title bright";
+			departureTime.innerHTML = moment.unix(connection.departure.time).format("HH:mm");
+			let departureDelay = document.createElement("span");
+			departureDelay.className = "xsmall ontime";
+			departureDelay.innerHTML = ` +${moment.utc(connection.departure.delay *1000).format("m")}`;
+			departureTime.appendChild(departureDelay);
+			connectionRow.appendChild(departureTime);
+
+			let line = document.createElement("td");
+			line.className = "dimmed";
+			let trainIcon = document.createElement("span");
+			trainIcon.className = "fas fa-train";
+			line.innerHTML = "&boxh;&boxh;&boxh;&boxh;&boxh;&boxh; ";
+			line.appendChild(trainIcon);
+			connectionRow.appendChild(line);
+
+			let arrivalTime = document.createElement("td");
+			arrivalTime.className = "title bright";
+			arrivalTime.innerHTML = moment.unix(connection.arrival.time).format("HH:mm");
+			let arrivalDelay = document.createElement("i");
+			arrivalDelay.className = "xsmall ontime";
+			arrivalDelay.innerHTML = ` +${moment.utc(connection.arrival.delay *1000).format("m")}`;
+			arrivalTime.appendChild(arrivalDelay);
+			connectionRow.appendChild(arrivalTime);
+
+			let infoRow = document.createElement("tr");
+			let departurePlatform = document.createElement("td");
+			departurePlatform.className = "xsmall";
+			departurePlatform.innerHTML = `${this.translate("PLATFORM")} ${connection.departure.platform}`;
+			infoRow.appendChild(departurePlatform);
+
+			let emptyLine = document.createElement("td");
+			infoRow.appendChild(emptyLine);
+
+			let duration = document.createElement("td");
+			duration.className = "xsmall";
+			duration.innerHTML = `${moment.duration(connection.duration * 1000).humanize()}`;
+
+			if (connection.vias && parseInt(connection.vias.number,10) > 0) {
+				duration.innerHTML += `, ${connection.vias.number} ${this.translate("CHANGE")}`;
+			}
+
+			infoRow.appendChild(duration);
+			table.appendChild(connectionRow);
+			table.appendChild(infoRow);
 		}
 
-		connectionList+= "</tbody></table>";
-		wrapper.innerHTML = connectionList;
-
-		this.forecast = wrapper;
+		this.forecast = table;
 
 		this.show(this.config.animationSpeed, { lockString: this.identifier });
 		this.loaded = true;
