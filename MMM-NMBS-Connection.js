@@ -10,13 +10,13 @@ Module.register("MMM-NMBS-Connection", {
 		results: 3,
 		updateInterval: 10 * 60 * 1000, // 10 * 60 * 1000 = every 10 minutes
 	},
-	getScripts: function() {
+	getScripts: function () {
 		return ["moment.js"];
 	},
-	getStyles: function() {
-		return ["MMM-NMBS-Connection.css"];
+	getStyles: function () {
+		return ["MMM-NMBS-Connection.css", "font-awesome.css"];
 	},
-	getTranslations: function() {
+	getTranslations: function () {
 		return {
 			en: "translations/en.json",
 			nl: "translations/nl.json",
@@ -45,9 +45,11 @@ Module.register("MMM-NMBS-Connection", {
 		const self = this;
 		const url = `${self.config.url}/?to=${self.config.to}&from=${self.config.from}&timeSel=depart&format=json&lang=${self.config.language}`;
 
-		fetch(url, {headers: {
-			"User-Agent": "Mozilla/5.0 (Node.js) MagicMirror (https://github.com/MichMich/MagicMirror/)"
-		}})
+		fetch(url, {
+			headers: {
+				"User-Agent": "Mozilla/5.0 (Node.js) MagicMirror (https://github.com/MichMich/MagicMirror/)"
+			}
+		})
 			.then(function (response) {
 				return response.json();
 			})
@@ -88,16 +90,15 @@ Module.register("MMM-NMBS-Connection", {
 			departureTime.innerHTML = moment.unix(connection.departure.time).format("HH:mm");
 			let departureDelay = document.createElement("span");
 			departureDelay.className = "xsmall ontime";
-			departureDelay.innerHTML = ` +${moment.utc(connection.departure.delay *1000).format("m")}`;
+			departureDelay.innerHTML = ` +${moment.utc(connection.departure.delay * 1000).format("m")}`;
 			departureTime.appendChild(departureDelay);
 			connectionRow.appendChild(departureTime);
 
 			let line = document.createElement("td");
 			line.className = "dimmed";
 			let trainIcon = document.createElement("span");
-			trainIcon.className = "fas fa-train";
+			trainIcon.className = "fa fa-train";
 			line.innerHTML = "&boxh;&boxh;&boxh;&boxh;&boxh;&boxh; ";
-			line.appendChild(trainIcon);
 			connectionRow.appendChild(line);
 
 			let arrivalTime = document.createElement("td");
@@ -105,7 +106,7 @@ Module.register("MMM-NMBS-Connection", {
 			arrivalTime.innerHTML = moment.unix(connection.arrival.time).format("HH:mm");
 			let arrivalDelay = document.createElement("i");
 			arrivalDelay.className = "xsmall ontime";
-			arrivalDelay.innerHTML = ` +${moment.utc(connection.arrival.delay *1000).format("m")}`;
+			arrivalDelay.innerHTML = ` +${moment.utc(connection.arrival.delay * 1000).format("m")}`;
 			arrivalTime.appendChild(arrivalDelay);
 			connectionRow.appendChild(arrivalTime);
 
@@ -122,8 +123,11 @@ Module.register("MMM-NMBS-Connection", {
 			duration.className = "xsmall";
 			duration.innerHTML = `${moment.duration(connection.duration * 1000).humanize()}`;
 
-			if (connection.vias && parseInt(connection.vias.number,10) > 0) {
+			if (connection.vias && parseInt(connection.vias.number, 10) > 0) {
 				duration.innerHTML += `, ${connection.vias.number} ${this.translate("CHANGE")}`;
+				line.innerHTML = "&boxh;&boxh; ";
+				line.appendChild(trainIcon);
+				line.innerHTML += " &boxh;&boxh; ";
 			}
 
 			infoRow.appendChild(duration);
