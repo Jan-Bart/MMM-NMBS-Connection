@@ -87,6 +87,9 @@ Module.register("MMM-NMBS-Connection", {
 			let connectionRow = document.createElement("tr");
 			let departureTime = document.createElement("td");
 			departureTime.className = "title bright";
+			if (parseInt(connection.departure.canceled, 10) > 0) {
+				departureTime.className = "dimmed line-through";
+			}
 			departureTime.innerHTML = moment.unix(connection.departure.time).format("HH:mm");
 			let departureDelay = document.createElement("span");
 			departureDelay.className = "xsmall ontime";
@@ -103,6 +106,9 @@ Module.register("MMM-NMBS-Connection", {
 
 			let arrivalTime = document.createElement("td");
 			arrivalTime.className = "title bright";
+			if (parseInt(connection.arrival.canceled, 10) > 0) {
+				departureTime.className = "dimmed line-through";
+			}
 			arrivalTime.innerHTML = moment.unix(connection.arrival.time).format("HH:mm");
 			let arrivalDelay = document.createElement("i");
 			arrivalDelay.className = "xsmall ontime";
