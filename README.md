@@ -1,4 +1,7 @@
 # MMM-NMBS-Connection
+
+[![license](https://img.shields.io/github/license/raywo/MMM-PublicTransportLeipzig.svg?style=flat)](LICENSE)
+
 Display upcoming trains between 2 NMBS/SNCB stations (Belgium)
 
 This module is an extension of the [MagicMirror² project](https://github.com/MichMich/MagicMirror).
@@ -56,3 +59,6 @@ You can find a list [with the stations here](https://github.com/iRail/stations).
 
 ## Dependencies
 This module is using the [iRail API](https://docs.irail.be/).
+
+## Report bugs
+You can report bugs here: [https://github.com/Jan-Bart/MMM-NMBS-Connection/issues](https://github.com/Jan-Bart/MMM-NMBS-Connection/issues)
