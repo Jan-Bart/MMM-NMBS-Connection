@@ -19,6 +19,7 @@ Module.register("MMM-NMBS-Connection", {
 	getTranslations: function () {
 		return {
 			en: "translations/en.json",
+			fr: "translations/fr.json",
 			nl: "translations/nl.json",
 		};
 	},
@@ -62,6 +63,7 @@ Module.register("MMM-NMBS-Connection", {
 	},
 	processConnections: function (data) {
 		let table = document.createElement("table");
+		table.className = "MMM-NMBS-Connection";
 		let tHead = document.createElement("thead");
 		let headerRow = document.createElement("tr");
 		let headerDeparture = document.createElement("td");
@@ -93,7 +95,11 @@ Module.register("MMM-NMBS-Connection", {
 			departureTime.innerHTML = moment.unix(connection.departure.time).format("HH:mm");
 			let departureDelay = document.createElement("span");
 			departureDelay.className = "xsmall ontime";
-			departureDelay.innerHTML = ` +${moment.utc(connection.departure.delay * 1000).format("m")}`;
+			let delayMinutes = moment.utc(connection.departure.delay * 1000).format("m");
+			departureDelay.innerHTML = ` +${delayMinutes}`;
+			if (parseInt(delayMinutes, 10) > 0) {
+				departureDelay.className = "xsmall delayed";
+			}
 			departureTime.appendChild(departureDelay);
 			connectionRow.appendChild(departureTime);
 
@@ -107,12 +113,16 @@ Module.register("MMM-NMBS-Connection", {
 			let arrivalTime = document.createElement("td");
 			arrivalTime.className = "title bright";
 			if (parseInt(connection.arrival.canceled, 10) > 0) {
-				departureTime.className = "dimmed line-through";
+				arrivalTime.className = "dimmed line-through";
 			}
 			arrivalTime.innerHTML = moment.unix(connection.arrival.time).format("HH:mm");
-			let arrivalDelay = document.createElement("i");
+			let arrivalDelay = document.createElement("span");
 			arrivalDelay.className = "xsmall ontime";
-			arrivalDelay.innerHTML = ` +${moment.utc(connection.arrival.delay * 1000).format("m")}`;
+			let delayArrivalMinutes = moment.utc(connection.arrival.delay * 1000).format("m");
+			arrivalDelay.innerHTML = ` +${delayArrivalMinutes}`;
+			if (parseInt(delayArrivalMinutes, 10) > 0) {
+				arrivalDelay.className = "xsmall delayed";
+			}
 			arrivalTime.appendChild(arrivalDelay);
 			connectionRow.appendChild(arrivalTime);
 

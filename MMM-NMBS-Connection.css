@@ -2,6 +2,10 @@
   color: green;
 }
 
-.line-through {
+.MMM-NMBS-Connection .delayed {
+  color: red;
+}
+
+.MMM-NMBS-Connection .line-through {
   text-decoration: line-through;
 }
