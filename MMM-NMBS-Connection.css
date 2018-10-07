@@ -9,3 +9,9 @@
 .MMM-NMBS-Connection .line-through {
   text-decoration: line-through;
 }
+
+.MMM-NMBS-Connection .station-name {
+  display: block;
+  margin-bottom: 10px;
+  margin-top: -10px;
+}

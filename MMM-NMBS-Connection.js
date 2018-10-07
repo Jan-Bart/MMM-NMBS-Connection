@@ -6,6 +6,7 @@ Module.register("MMM-NMBS-Connection", {
 		initialLoadDelay: 1000, // 1 second delay
 		language: "nl",
 		results: 3,
+		showStationNames: false,
 		text: "Loading",
 		to: "http://irail.be/stations/NMBS/008821196",
 		updateInterval: 10 * 60 * 1000, // 10 * 60 * 1000 = every 10 minutes
@@ -72,6 +73,20 @@ Module.register("MMM-NMBS-Connection", {
 		let headerLine = document.createElement("td");
 		let headerArrival = document.createElement("td");
 		headerArrival.innerHTML = this.translate("ARRIVAL");
+
+		if (this.config.showStationNames && data && data.connection && data.connection[0]) {
+			let departureStation = document.createElement("span");
+			departureStation.className = "xsmall station-name";
+			departureStation.innerHTML = data.connection[0].departure.station;
+			headerDeparture.appendChild(departureStation);
+		}
+
+		if (this.config.showStationNames && data && data.connection && data.connection[0]) {
+			let arrivalStation = document.createElement("span");
+			arrivalStation.className = "xsmall station-name";
+			arrivalStation.innerHTML = data.connection[0].arrival.station;
+			headerArrival.appendChild(arrivalStation);
+		}
 
 		headerRow.appendChild(headerDeparture);
 		headerRow.appendChild(headerLine);

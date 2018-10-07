@@ -40,6 +40,7 @@ Sample configuration entry for your `~/MagicMirror/config/config.js` with option
     from: "Antwerp-Central",
     humanizeDuration: false,
     results: 3,
+		showStationNames: true,
     to: "Brussels-South"
   }
 },
@@ -53,9 +54,10 @@ The following properties can be configured:
 | Key                 | Description                                               | Example         |
 | ------------------- |---------------------------------------------------------  |:---------------:|
 | from                | Departure stationname or ID                               | Antwerp-Central |
-| to                  | Destination stationname or ID                             | Brussels-Sout   |
+| to                  | Destination stationname or ID                             | Brussels-South  |
 | humanizeDuration    | Change time format (1 hour or 01:05)  (Default: true)     | true (=> 1 hour)  false (=> 01:05)          |
 | results             | Number of results (max 6)                                 |      3          |
+| showStationNames    | Show or hide stationNames  (Default: false)               | false (=> 1 hidden) |
 
 You can find a list [with the stations here](https://github.com/iRail/stations).
 
