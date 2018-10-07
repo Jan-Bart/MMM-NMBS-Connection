@@ -2,7 +2,7 @@
 
 [![license](https://img.shields.io/github/license/raywo/MMM-PublicTransportLeipzig.svg?style=flat)](LICENSE)
 
-Display upcoming trains between 2 NMBS/SNCB stations (Belgium)
+Display upcoming trains between 2 NMBS / SNCB stations (Belgium | Belgian Railways)
 
 This module is an extension of the [MagicMirror² project](https://github.com/MichMich/MagicMirror).
 
@@ -25,7 +25,7 @@ Sample minimum configuration entry for your `~/MagicMirror/config/config.js`:
   position: "bottom_left",
   config: {
     from: "Antwerp-Central",
-    to: "Brussels-South",
+    to: "Brussels-South"
   }
 },
 ```
@@ -38,8 +38,9 @@ Sample configuration entry for your `~/MagicMirror/config/config.js` with option
   position: "bottom_left",
   config: {
     from: "Antwerp-Central",
-    to: "Brussels-South",
-    results: 3
+    humanizeDuration: false,
+    results: 3,
+    to: "Brussels-South"
   }
 },
 ```
@@ -49,11 +50,12 @@ Sample configuration entry for your `~/MagicMirror/config/config.js` with option
 
 The following properties can be configured:
 
-| Key        | Description                    | Example         |
-| ---------- |------------------------------  |:---------------:|
-| from       | Departure stationname or ID    | Antwerp-Central |
-| to         | Destination stationname or ID  | Brussels-Sout   |
-| results    | Number of results (max 6)      |      3          |
+| Key                 | Description                                               | Example         |
+| ------------------- |---------------------------------------------------------  |:---------------:|
+| from                | Departure stationname or ID                               | Antwerp-Central |
+| to                  | Destination stationname or ID                             | Brussels-Sout   |
+| humanizeDuration    | Change time format (1 hour or 01:05)  (Default: true)     | true (=> 1 hour)  false (=> 01:05)          |
+| results             | Number of results (max 6)                                 |      3          |
 
 You can find a list [with the stations here](https://github.com/iRail/stations).
 

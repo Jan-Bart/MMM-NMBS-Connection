@@ -1,14 +1,15 @@
 Module.register("MMM-NMBS-Connection", {
 
 	defaults: {
-		initialLoadDelay: 1000, // 1 second delay
-		text: "Loading",
 		from: "http://irail.be/stations/NMBS/008893120",
-		to: "http://irail.be/stations/NMBS/008821196",
+		humanizeDuration: true,
+		initialLoadDelay: 1000, // 1 second delay
 		language: "nl",
-		url: "https://api.irail.be/connections",
 		results: 3,
+		text: "Loading",
+		to: "http://irail.be/stations/NMBS/008821196",
 		updateInterval: 10 * 60 * 1000, // 10 * 60 * 1000 = every 10 minutes
+		url: "https://api.irail.be/connections",
 	},
 	getScripts: function () {
 		return ["moment.js"];
@@ -136,8 +137,12 @@ Module.register("MMM-NMBS-Connection", {
 			infoRow.appendChild(emptyLine);
 
 			let duration = document.createElement("td");
+			let durationTime = moment.utc(connection.duration * 1000).format('HH:mm');
+			if (this.config.humanizeDuration) {
+				durationTime = moment.duration(connection.duration * 1000).humanize();
+			}
 			duration.className = "xsmall";
-			duration.innerHTML = `${moment.duration(connection.duration * 1000).humanize()}`;
+			duration.innerHTML = durationTime;
 
 			if (connection.vias && parseInt(connection.vias.number, 10) > 0) {
 				duration.innerHTML += `, ${connection.vias.number} ${this.translate("CHANGE")}`;
