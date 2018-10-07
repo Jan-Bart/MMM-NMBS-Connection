@@ -40,7 +40,7 @@ Sample configuration entry for your `~/MagicMirror/config/config.js` with option
     from: "Antwerp-Central",
     humanizeDuration: false,
     results: 3,
-		showStationNames: true,
+    showStationNames: true,
     to: "Brussels-South"
   }
 },
