@@ -47,19 +47,18 @@ Sample configuration entry for your `~/MagicMirror/config/config.js` with option
 },
 ```
 
-
 ## Configuration options
 
 The following properties can be configured:
 
-| Key                 | Description                                               | Example         |
-| ------------------- |---------------------------------------------------------  |:---------------:|
-| from                | Departure stationname or ID                               | Antwerp-Central |
-| to                  | Destination stationname or ID                             | Brussels-South  |
-| humanizeDuration    | Change time format (`1 hour` or `01:05`)  (Default: `true`)     | true (=> 1 hour)  false (=> 01:05)          |
-| language            | By default the global language is used                    | en          |
-| results             | Number of results (max 6)                                 |      3          |
-| showStationNames    | Show or hide stationNames  (Default: `false`)             | false (=> 1 hidden) |
+| Key                 | Description                                    | Default         | Example         |
+| ------------------- |------------------------------------------------|:---------------:|:---------------:|
+| from                | Departure stationname or ID                    | http://irail.be/stations/NMBS/008893120 | Antwerp-Central |
+| to                  | Destination stationname or ID                  | http://irail.be/stations/NMBS/008821196 | Brussels-South  |
+| humanizeDuration    | Change time format (`1 hour` or `01:05`)       | true  | `true` => 1 hour<br />`false` => 01:05    |
+| language            | Overwrite language is necessary                |  en   | nl          |
+| results             | Number of results (max 6)                      |  3    |      5          |
+| showStationNames    | Show or hide station names                     | false | `true` => show stationnames |
 
 You can find a list [with the stations here](https://github.com/iRail/stations).
 
