@@ -4,7 +4,7 @@ Module.register("MMM-NMBS-Connection", {
 		from: "http://irail.be/stations/NMBS/008893120",
 		humanizeDuration: true,
 		initialLoadDelay: 1000, // 1 second delay
-		language: "nl",
+		language: config.language,
 		results: 3,
 		showStationNames: false,
 		text: "Loading",
