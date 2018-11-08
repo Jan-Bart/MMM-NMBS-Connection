@@ -57,7 +57,7 @@ The following properties can be configured:
 | from                | Departure stationname or ID                               | Antwerp-Central |
 | to                  | Destination stationname or ID                             | Brussels-South  |
 | humanizeDuration    | Change time format (`1 hour` or `01:05`)  (Default: `true`)     | true (=> 1 hour)  false (=> 01:05)          |
-| language            | By default the global language is used, but you can overwrite this | en          |
+| language            | By default the global language is used                    | en          |
 | results             | Number of results (max 6)                                 |      3          |
 | showStationNames    | Show or hide stationNames  (Default: `false`)             | false (=> 1 hidden) |
 
