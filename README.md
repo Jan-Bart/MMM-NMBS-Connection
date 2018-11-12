@@ -53,8 +53,8 @@ The following properties can be configured:
 
 | Key                 | Description                                    | Default         | Example         |
 | ------------------- |------------------------------------------------|:---------------:|:---------------:|
-| from                | Departure stationname or ID                    | "http://irail.be/stations/NMBS/008893120" | Antwerp-Central |
-| to                  | Destination stationname or ID                  | "http://irail.be/stations/NMBS/008821196" | Brussels-South  |
+| from                | Departure stationname or ID                    | "http://irail.be/stations/NMBS/008893120" | "Antwerp-Central" |
+| to                  | Destination stationname or ID                  | "http://irail.be/stations/NMBS/008821196" | "Brussels-South"  |
 | humanizeDuration    | Change time format<br />(`1 hour` or `01:05`)       | true  | `true` => 1 hour<br />`false` => 01:05    |
 | language            | Overwrite language if necessary                |  "en"   | "nl"          |
 | results             | Number of rows (max 6)                         |  3    |      5          |
