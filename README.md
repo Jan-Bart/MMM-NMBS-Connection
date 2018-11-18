@@ -56,9 +56,9 @@ The following properties can be configured:
 | from                | Departure stationname or ID                    | "http://irail.be/stations/NMBS/008893120" | "Antwerp-Central" |
 | to                  | Destination stationname or ID                  | "http://irail.be/stations/NMBS/008821196" | "Brussels-South"  |
 | humanizeDuration    | Change time format<br />(`1 hour` or `01:05`)       | true  | `true` => 1 hour<br />`false` => 01:05    |
-| language            | Overwrite language if necessary                |  "en"   | "nl"          |
-| results             | Number of rows (max 6)                         |  3    |      5          |
-| showStationNames    | Show or hide station names                     | false | `true` => show stationnames |
+| language            | Overwrite language if necessary<br />*Possible options*: `de`, `en`, `fr`, `nl` |  "en"   | "nl"          |
+| results             | Number of rows<br />*Possible options*:  `1` - `6`                   |  3    |      5          |
+| showStationNames    | Show or hide station names<br />*Possible options*:  `false`, `true` | false | `true` => show stationnames |
 
 You can find a list [with the stations here](https://github.com/iRail/stations).
 
